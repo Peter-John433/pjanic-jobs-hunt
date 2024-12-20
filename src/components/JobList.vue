@@ -19,7 +19,10 @@ export default defineComponent({
     <ul>
       <li v-for="job in jobHunts" :key="job.id">
         <h2>{{ job.title }} in {{ job.location }}</h2>
-        <div>$ {{ job.salary }}</div>
+        <div class="salary">
+          <span>$ </span>
+          <p>{{ job.salary }}</p>
+        </div>
         <div class="description">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
           neque harum reiciendis sapiente dolores vitae molestiae quasi amet
@@ -29,4 +32,37 @@ export default defineComponent({
     </ul>
   </div>
 </template>
-<style scoped></style>
+<style scoped>
+.job-list {
+  max-width: 960px;
+  margin: 40px auto;
+}
+.job-list ul {
+  padding: 0;
+}
+.job-list li {
+  list-style-type: none;
+  background: white;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+.job-list h2 {
+  margin: 0 0 10px;
+  text-transform: capitalize;
+}
+.salary {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.salary img {
+  width: 30px;
+}
+.salary p {
+  /* color: #17bf66; */
+  color: red;
+  font-weight: bold;
+  margin: 10px 4px;
+}
+</style>

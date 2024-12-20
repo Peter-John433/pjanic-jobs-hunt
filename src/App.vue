@@ -41,8 +41,6 @@ export default defineComponent({
 </script>
 
 <template>
-  <h1>Job hunt for all techs</h1>
-
   <div class="app">
     <JobList :jobHunts="jobHunts" />
   </div>
