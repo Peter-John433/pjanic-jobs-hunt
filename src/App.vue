@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import JobList from "./components/JobList.vue";
+import OrderTerm from "./types/OrderTerm";
 
 import job from "./types/Job";
 
@@ -35,15 +36,46 @@ export default defineComponent({
       },
     ]);
 
-    return { jobHunts };
+    const order = ref<OrderTerm>("title");
+
+    //handleorder func
+    const handleOrder = (orderTerm: OrderTerm) => {
+      order.value = orderTerm;
+    };
+
+    return { jobHunts, order, handleOrder };
   },
 });
 </script>
 
 <template>
   <div class="app">
-    <JobList :jobHunts="jobHunts" />
+    <header>
+      <div class="order">
+        <button @click="handleOrder('title')">title</button>
+        <button @click="handleOrder('salary')">salary</button>
+        <button @click="handleOrder('location')">location</button>
+      </div>
+    </header>
+    <JobList :jobHunts="jobHunts" :order="order" />
   </div>
 </template>
 
-<style></style>
+<style scoped>
+header {
+  text-align: center;
+}
+header .order {
+  margin-top: 20px;
+}
+button {
+  margin: 0 10px;
+  color: #1195c9;
+  border: 3px solid #1195c9;
+  background: #d5f0ff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+</style>
