@@ -1,18 +1,51 @@
-<template>
-  <h1>{{ hello }}</h1>
-</template>
-
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import JobList from "./components/JobList.vue";
+
+import job from "./types/Job";
 
 export default defineComponent({
-  components: {},
+  name: "App",
+  components: { JobList },
   setup() {
-    const hello = ref<string>("hello world");
+    const jobHunts = ref<job[]>([
+      {
+        title: "Software Engineer",
+        id: 1,
+        salary: 85000,
+        location: "San Francisco, CA",
+      },
+      {
+        title: "Data Scientist",
+        id: 2,
+        salary: 95000,
+        location: "New York, NY",
+      },
+      {
+        title: "Product Manager",
+        id: 3,
+        salary: 105000,
+        location: "Seattle, WA",
+      },
+      {
+        title: "UX Designer",
+        id: 4,
+        salary: 75000,
+        location: "Austin, TX",
+      },
+    ]);
 
-    return { hello };
+    return { jobHunts };
   },
 });
 </script>
+
+<template>
+  <h1>Job hunt for all techs</h1>
+
+  <div class="app">
+    <JobList :jobHunts="jobHunts" />
+  </div>
+</template>
 
 <style></style>
