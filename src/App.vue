@@ -13,26 +13,50 @@ export default defineComponent({
       {
         title: "Software Engineer",
         id: 1,
-        salary: 85000,
+        salary: 90000,
         location: "San Francisco, CA",
+        description:
+          "Designs, develops, and maintains software applications while collaborating with cross-functional teams.",
       },
       {
         title: "Data Scientist",
         id: 2,
-        salary: 95000,
+        salary: 100000,
         location: "New York, NY",
+        description:
+          "Analyzes large datasets to uncover trends and insights, supporting data-driven decision-making.",
       },
       {
         title: "Product Manager",
         id: 3,
-        salary: 105000,
+        salary: 110000,
         location: "Seattle, WA",
+        description:
+          "Leads product development, coordinates with stakeholders, and ensures alignment with company goals.",
       },
       {
         title: "UX Designer",
         id: 4,
-        salary: 75000,
+        salary: 80000,
         location: "Austin, TX",
+        description:
+          "Creates intuitive designs to enhance user experience and improve product usability.",
+      },
+      {
+        title: "DevOps Engineer",
+        id: 5,
+        salary: 95000,
+        location: "Denver, CO",
+        description:
+          "Maintains and improves development workflows, ensuring continuous integration and delivery pipelines.",
+      },
+      {
+        title: "QA Analyst",
+        id: 6,
+        salary: 70000,
+        location: "Chicago, IL",
+        description:
+          "Tests software applications to identify bugs, ensure quality, and maintain performance standards.",
       },
     ]);
 
@@ -50,6 +74,10 @@ export default defineComponent({
 
 <template>
   <div class="app">
+    <div class="heart">
+      <img src="@/assets/heart.svg" alt="heart" />
+      <h1>Job Hunts</h1>
+    </div>
     <header>
       <div class="order">
         <button @click="handleOrder('title')">title</button>
@@ -62,6 +90,18 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.heart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.heart img {
+  width: 50px;
+  object-fit: contain;
+}
+
 header {
   text-align: center;
 }
@@ -70,12 +110,14 @@ header .order {
 }
 button {
   margin: 0 10px;
-  color: #1195c9;
-  border: 3px solid #1195c9;
-  background: #d5f0ff;
+  color: white;
+  border: 3px solid #008000;
+  background: #1be21b;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  font-style: normal;
+  width: 100px;
 }
 </style>
